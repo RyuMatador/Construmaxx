@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<h:outputStylesheet library="css" name="template.css" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+
+</h:head>
+
+<h:body>
+	<div class="container-fluid pt-3" style="background-color: rgb(238, 67, 30)">
+		<div class="container">
+		
+			<h4><IMG alt="" src="resources/logo.png" /></h4>
+		</div>
+
+		<div class="container px-0">
+			<ui:insert name="menu">
+				<h:form>
+					<ul class="nav navbar">
+						<li style="text-color= white;"><h:commandLink value="Login"
+								action="#{templateController.redLogin}" /></li>
+						<li style="text-color= white;"><h:commandLink value="Comprar Produtos"
+								action="#{templateController.redCompra}" /></li>
+						<li style="text-color= white;"><h:commandLink value="Carrinho"
+								action="#{templateController.redCarrinho}" /></li>
+					</ul>
+				</h:form>
+			</ui:insert>
+		</div>
+	</div>
+	
+	<div class="container mt-4">
+		<aside>
+			<ui:insert name="navegacao" class="col-2">
+
+			</ui:insert>
+		</aside>
+		<section>
+			<ui:insert name="conteudo" class="col-8" />
+		</section>
+	</div>
+
+
+
+	<footer class="footer" style="text-align: center;">
+		<h:outputText value="Building by Unitins" />
+	</footer>
+</h:body>
+</html>
