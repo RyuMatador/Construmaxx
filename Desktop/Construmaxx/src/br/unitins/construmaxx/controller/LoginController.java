@@ -1,17 +1,20 @@
 package br.unitins.construmaxx.controller;
 
+import java.io.Serializable;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 import br.unitins.construmaxx.application.Session;
 import br.unitins.construmaxx.application.Util;
 import br.unitins.construmaxx.dao.UsuarioDAO;
-import br.unitins.construmaxx.model.Perfil;
 import br.unitins.construmaxx.model.Usuario;
 
 @Named
 @RequestScoped
-public class LoginController {
+public class LoginController implements Serializable {
+
+	private static final long serialVersionUID = -2507565400022883428L;
 
 	private Usuario usuario;
 

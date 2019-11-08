@@ -1,8 +1,15 @@
 body {
 	margin: 2px;
-	
 }
+
 .navlist {
-     background-color: rgba(50, 115, 220, 0.3);
-     
- }
+	background-color: rgba(50, 115, 220, 0.3);
+}
+
+.passwordError {
+	color: red;
+	margin: 8px;
+	list-style: none;
+	z-index: 2;
+	text-align: center;
+}

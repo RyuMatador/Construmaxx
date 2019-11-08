@@ -7,25 +7,26 @@
 <h:head>
 	<title>Login</title>
 	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<h:outputStylesheet library="css" name="template.css" />
 </h:head>
 
 <ui:composition template="templatepadrao.xhtml">
 	<ui:define name="conteudo">
+		<h:messages styleClass="passwordError" />
 		<div
 			id="container d-flex flex-nowrap align-items-center justify-content-center">
 			<div class="col-12">
-				<center>
-					<h3>Login</h3>
-				</center>
+				<h3 class="text-center">Login</h3>
+
 				<h:form class="container">
-					<h:messages style="color:red; margin:8px; list-style: none; z-index: 2; text-align: center;" />
-					<div class="py-2 w-100" style="z-index: 2;">
+
+					<div class="py-2 w-100">
 						<h:inputText value="#{loginController.usuario.login}">
 							<f:passThroughAttribute name="placeholder" value="Email" />
 						</h:inputText>
-						
+
 					</div>
-					<div class="py-2 w-100" style="z-index: 2;">
+					<div class="py-2 w-100">
 						<h:inputSecret value="#{loginController.usuario.senha}">
 							<f:passThroughAttribute name="placeholder" value="Senha" />
 						</h:inputSecret>
@@ -36,11 +37,10 @@
 						<h:commandButton class="btn btn-alert" value="Limpar"
 							actionListener="#{loginController.limpar()}" />
 					</div>
-					<h:outputLabel value="#{loginController.usuario.login}" />
 				</h:form>
 			</div>
 		</div>
 		<ui:define name="footer"></ui:define>
-		</ui:define>
+	</ui:define>
 </ui:composition>
 </html>
