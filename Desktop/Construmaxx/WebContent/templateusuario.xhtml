@@ -12,22 +12,28 @@
 </h:head>
 
 <h:body>
-	<div class="container-fluid" style="background-color: rgba(50, 115, 220, 0.3)">
+	<div class="container-fluid px-0" style="background-color: white">
 		<div class="container">
-			<h4>Construmaxx</h4>
+			<img alt="" src="resources/logo.png" width="300px" />
 		</div>
 
-		<div class="container px-0">
+		<div class="container-fluid px-0"
+			style="background-color: rgb(242, 135, 41); height: 3em;">
 			<ui:insert name="menu">
 				<h:form>
-					<ul class="nav navbar">
-						<li style="text-color= white;"><h:commandLink value="Login"
-								action="#{templateController.redLogin}" /></li>
-						<li style="text-color= white;"><h:commandLink value="Comprar Produtos"
-								action="#{templateController.redCompra}" /></li>
-						<li style="text-color= white;"><h:commandLink value="Carrinho"
-								action="#{templateController.redCarrinho}" /></li>
-					</ul>
+					<div class="container">
+						<ul class="nav navbar">
+							<li class="nav-item active p-1"><h:commandLink value="Login"
+									action="#{templateController.redLogin}" style="color: white;" /></li>
+							<li class="nav-item active p-1"><h:commandLink
+									value="Cadastrar Clientes"
+									action="#{templateController.redCadastro}"
+									style="color: white;" /></li>
+							<li class="nav-item active p-1"><h:commandLink
+									value="Cadastro Produtos"
+									action="#{templateController.redProduto}" style="color: white;" /></li>
+						</ul>
+					</div>
 				</h:form>
 			</ui:insert>
 		</div>

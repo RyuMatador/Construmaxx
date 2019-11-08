@@ -9,28 +9,38 @@
 	<h:outputStylesheet library="css" name="bootstrap.css" />
 </h:head>
 
-<ui:composition template="templateusuario.xhtml">
+<ui:composition template="templatepadrao.xhtml">
 	<ui:define name="conteudo">
-		<div id="container">
-			<h:messages />
+		<div
+			id="container d-flex flex-nowrap align-items-center justify-content-center">
+			<div class="col-12">
+				<center>
+					<h3>Login</h3>
+				</center>
+				<h:form class="container">
+					<h:messages style="color:red; margin:8px; list-style: none; z-index: 2; text-align: center;" />
+					<div class="py-2 w-100" style="z-index: 2;">
+						<h:inputText value="#{loginController.usuario.login}">
+							<f:passThroughAttribute name="placeholder" value="Email" />
+						</h:inputText>
+						
+					</div>
+					<div class="py-2 w-100" style="z-index: 2;">
+						<h:inputSecret value="#{loginController.usuario.senha}">
+							<f:passThroughAttribute name="placeholder" value="Senha" />
+						</h:inputSecret>
+					</div>
+					<div class="text-center py-2">
+						<h:commandButton class="btn btn-success" value="Logar"
+							action="#{loginController.logar()}" />
+						<h:commandButton class="btn btn-alert" value="Limpar"
+							actionListener="#{loginController.limpar()}" />
+					</div>
+					<h:outputLabel value="#{loginController.usuario.login}" />
+				</h:form>
+			</div>
 		</div>
-		<h1>Login</h1>
-		<h:form>
-			<h:panelGrid columns="2">
-				<h:outputLabel value="Usuário: " />
-				<h:inputText value="#{loginController.usuario.login}" />
-
-				<h:outputLabel value="Senha: " />
-				<h:inputSecret value="#{loginController.usuario.senha}" />
-
-				<h:commandButton value="Logar" action="#{loginController.logar()}" />
-				<h:commandButton value="Limpar"
-					actionListener="#{loginController.limpar()}" />
-
-			</h:panelGrid>
-
-			<h:outputLabel value="#{loginController.usuario.login}" />
-		</h:form>
-	</ui:define>
+		<ui:define name="footer"></ui:define>
+		</ui:define>
 </ui:composition>
 </html>

@@ -24,8 +24,8 @@ public abstract class DAO<T>{
 				// registrando o drive do prostgres
 				Class.forName("org.postgresql.Driver");
 				// estabelecendo uma conexao com o banco de dados
-				conn = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5433/bikedb", 
-								"topicos", "123456");
+				conn = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/bikedb", 
+								"topicos", "12345");
 				// obriga a trabalhar com commit e rollback
 				conn.setAutoCommit(false);
 				System.out.println("Conexao realizada com sucesso.");
@@ -34,7 +34,7 @@ public abstract class DAO<T>{
 				conn = null;
 				e.printStackTrace();
 			} catch (ClassNotFoundException e) {
-				System.out.println("Fala ao resgistrar o Driver do banco");
+				System.out.println("Falha ao resgistrar o driver do banco");
 				conn = null;
 				e.printStackTrace();
 			}

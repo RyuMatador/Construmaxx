@@ -39,7 +39,13 @@ public class UsuarioController implements Serializable {
 	public void incluir() {
 		if (validarDados()) {
 			DAO<Usuario> dao = new UsuarioDAO();
+			// faz a inclusao no banco de dados
 			try {
+				//				String hashSenha = Util.hashSHA256(getUsuario().getSenha());
+				//				getUsuario().setSenha(hashSenha);
+
+				getUsuario().setSenha(Util.hashSHA256(getUsuario().getSenha()));
+
 				dao.create(getUsuario());
 				dao.getConnection().commit();
 				Util.addMessageInfo("InclusÃ£o realizada com sucesso.");
@@ -60,7 +66,7 @@ public class UsuarioController implements Serializable {
 			try {
 				dao.update(getUsuario());
 				dao.getConnection().commit();
-				Util.addMessageInfo("Alteração realizada com sucesso.");
+				Util.addMessageInfo("Alteraï¿½ï¿½o realizada com sucesso.");
 				limpar();
 				listaUsuario = null;
 			} catch (SQLException e) {

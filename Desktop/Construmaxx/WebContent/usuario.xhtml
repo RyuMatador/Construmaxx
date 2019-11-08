@@ -8,12 +8,14 @@
 <ui:composition template="templatefuncionario.xhtml">
 	<ui:define name="conteudo">
 
-		<h4>Cadastro de Usuário</h4>
+		<h4 class="text-center py-3">Cadastro de Usuário</h4>
+
 		<div class="container-fluid d-flex">
 			<h:form id="formPrincipal">
 				<h:messages id="messages" infoStyle="color:green"
 					warnStyle="color:orange" errorStyle="color:red" globalOnly="false" />
-				<div class="col-6">
+				
+				<div class="col-md-6">
 					<h:panelGrid id="panelPrincipal" columns="2">
 						<h:outputLabel value="Nome: " />
 						<h:inputText id="inputNome"
@@ -56,38 +58,39 @@
 						</h:selectOneMenu>
 
 					</h:panelGrid>
+
+
+
+					<h:panelGrid id="panelBotoes" columns="4">
+						<h:commandButton value="Incluir"
+							disabled="#{usuarioController.usuario.id != null}"
+							actionListener="#{usuarioController.incluir()}">
+							<f:ajax render="formPrincipal" execute="panelPrincipal"
+								resetValues="true" />
+
+						</h:commandButton>
+						<h:commandButton value="Alterar"
+							disabled="#{usuarioController.usuario.id == null}"
+							actionListener="#{usuarioController.alterar()}">
+							<f:ajax render="formPrincipal messages" execute="formPrincipal" />
+						</h:commandButton>
+
+						<h:commandButton value="Excluir"
+							disabled="#{usuarioController.usuario.id == null}"
+							actionListener="#{usuarioController.excluir()}">
+							<f:ajax render="@all" execute="@this" />
+						</h:commandButton>
+
+						<h:commandButton value="Limpar"
+							action="#{usuarioController.limpar()}">
+							<f:ajax
+								render="formPrincipal inputNome inputData inputCep checkAtivo"
+								execute="@this" resetValues="true" />
+						</h:commandButton>
+					</h:panelGrid>
 				</div>
 
-
-				<h:panelGrid id="panelBotoes" columns="4">
-					<h:commandButton value="Incluir"
-						disabled="#{usuarioController.usuario.id != null}"
-						actionListener="#{usuarioController.incluir()}">
-						<f:ajax render="formPrincipal" execute="panelPrincipal"
-							resetValues="true" />
-
-					</h:commandButton>
-					<h:commandButton value="Alterar"
-						disabled="#{usuarioController.usuario.id == null}"
-						actionListener="#{usuarioController.alterar()}">
-						<f:ajax render="formPrincipal messages" execute="formPrincipal" />
-					</h:commandButton>
-
-					<h:commandButton value="Excluir"
-						disabled="#{usuarioController.usuario.id == null}"
-						actionListener="#{usuarioController.excluir()}">
-						<f:ajax render="@all" execute="@this" />
-					</h:commandButton>
-
-					<h:commandButton value="Limpar"
-						action="#{usuarioController.limpar()}">
-						<f:ajax
-							render="formPrincipal inputNome inputData inputCep checkAtivo"
-							execute="@this" resetValues="true" />
-					</h:commandButton>
-				</h:panelGrid>
-
-				<div>
+				<div class="col-md-6">
 					<h:panelGrid id="panelDataTable">
 						<h:dataTable id="dataTable"
 							value="#{usuarioController.listaUsuario}" var="obj"
@@ -135,10 +138,10 @@
 								<f:facet name="header">Perfil</f:facet>
 								<h:outputLabel value="#{obj.perfil.label}" />
 							</h:column>
-
 						</h:dataTable>
 					</h:panelGrid>
 				</div>
+				
 			</h:form>
 		</div>
 	</ui:define>
