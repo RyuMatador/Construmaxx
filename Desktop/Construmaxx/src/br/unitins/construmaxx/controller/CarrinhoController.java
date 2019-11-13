@@ -11,7 +11,7 @@ import br.unitins.construmaxx.application.Session;
 import br.unitins.construmaxx.model.ItemVenda;
 import br.unitins.construmaxx.model.Venda;
 
-@Named
+@Named 
 @ViewScoped
 public class CarrinhoController implements Serializable{
 
