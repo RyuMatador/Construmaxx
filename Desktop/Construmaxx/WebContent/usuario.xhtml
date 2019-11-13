@@ -14,7 +14,7 @@
 			<h:form id="formPrincipal">
 				<h:messages id="messages" infoStyle="color:green"
 					warnStyle="color:orange" errorStyle="color:red" globalOnly="false" />
-				
+
 				<div class="col-md-6">
 					<h:panelGrid id="panelPrincipal" columns="2">
 						<h:outputLabel value="Nome: " />
@@ -62,26 +62,26 @@
 
 
 					<h:panelGrid id="panelBotoes" columns="4">
-						<h:commandButton value="Incluir"
+						<h:commandButton value="Incluir" class="buttonCrud"
 							disabled="#{usuarioController.usuario.id != null}"
 							actionListener="#{usuarioController.incluir()}">
 							<f:ajax render="formPrincipal" execute="panelPrincipal"
 								resetValues="true" />
 
 						</h:commandButton>
-						<h:commandButton value="Alterar"
+						<h:commandButton value="Alterar" class="buttonCrud"
 							disabled="#{usuarioController.usuario.id == null}"
 							actionListener="#{usuarioController.alterar()}">
 							<f:ajax render="formPrincipal messages" execute="formPrincipal" />
 						</h:commandButton>
 
-						<h:commandButton value="Excluir"
+						<h:commandButton value="Excluir" class="buttonCrud"
 							disabled="#{usuarioController.usuario.id == null}"
 							actionListener="#{usuarioController.excluir()}">
 							<f:ajax render="@all" execute="@this" />
 						</h:commandButton>
 
-						<h:commandButton value="Limpar"
+						<h:commandButton value="Limpar" class="buttonCrud"
 							action="#{usuarioController.limpar()}">
 							<f:ajax
 								render="formPrincipal inputNome inputData inputCep checkAtivo"
@@ -141,7 +141,7 @@
 						</h:dataTable>
 					</h:panelGrid>
 				</div>
-				
+
 			</h:form>
 		</div>
 	</ui:define>

@@ -30,26 +30,26 @@
 				</h:panelGrid>
 
 				<h:panelGrid id="panelBotoes" columns="4">
-					<h:commandButton value="Incluir"
+					<h:commandButton value="Incluir" class="buttonCrud"
 						disabled="#{ProdutoController.produto.id != null}"
 						actionListener="#{ProdutoController.incluir()}">
 						<f:ajax render="formPrincipal" execute="panelPrincipal"
 							resetValues="true" />
 
 					</h:commandButton>
-					<h:commandButton value="Alterar"
+					<h:commandButton value="Alterar" class="buttonCrud"
 						disabled="#{ProdutoController.produto.id == null}"
 						actionListener="#{produtoController.alterar()}">
 						<f:ajax render="formPrincipal messages" execute="formPrincipal" />
 					</h:commandButton>
 
-					<h:commandButton value="Excluir"
+					<h:commandButton value="Excluir" class="buttonCrud"
 						disabled="#{ProdutoController.produto.id == null}"
 						actionListener="#{ProdutoController.excluir()}">
 						<f:ajax render="@all" execute="@this" />
 					</h:commandButton>
 
-					<h:commandButton value="Limpar"
+					<h:commandButton value="Limpar" class="buttonCrud"
 						action="#{ProdutoController.limpar()}">
 						<f:ajax render="formPrincipal" execute="@this" />
 					</h:commandButton>
