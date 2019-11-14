@@ -45,3 +45,8 @@ body {
    border-top-color: #1b435e;
    background: #1b435e;
    }
+   
+  .background-color{
+  	color: rgb(140, 49, 168);
+  	height: 100vh;
+  }
