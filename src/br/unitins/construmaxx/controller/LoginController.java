@@ -30,19 +30,19 @@ public class LoginController implements Serializable {
 			//administrador
 			if (usuario.getPerfil().equals(getUsuario().getPerfil().valueOf(1))) {
 				Session.getInstance().setAttribute("usuarioLogado", usuario);
-				return "templatefuncionario.xhtml?faces-redirect=true";
+				return "usuario.xhtml?faces-redirect=true";
 			}
 			
 			//funcionario
 			if (usuario.getPerfil().equals(getUsuario().getPerfil().valueOf(2))) {
 				Session.getInstance().setAttribute("usuarioLogado", usuario);
-				return "templatefuncionario.xhtml?faces-redirect=true";
+				return "usuario.xhtml?faces-redirect=true";
 			}
 			
 			//cliente
 			if (usuario.getPerfil().equals(getUsuario().getPerfil().valueOf(3))) {
 				Session.getInstance().setAttribute("usuarioLogado", usuario);
-				return "templatefuncionario.xhtml?faces-redirect=true";
+				return "carrinho.xhtml?faces-redirect=true";
 			}
 		}
 		Util.addMessageError("usuario ou senha invalido.");

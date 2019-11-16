@@ -25,7 +25,7 @@ public abstract class DAO<T>{
 				Class.forName("org.postgresql.Driver");
 				// estabelecendo uma conexao com o banco de dados
 				conn = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/construmaxx", 
-								"topicos", "123456");
+								"topicos", "12345");
 				// obriga a trabalhar com commit e rollback
 				conn.setAutoCommit(false);
 				System.out.println("Conexao realizada com sucesso.");

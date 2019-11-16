@@ -4,14 +4,13 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-<ui:composition template="templatepadrao.xhtml">
+<ui:composition template="templateusuario.xhtml">
 <ui:define name="conteudo">
 
-	<center>
-		<h1>Carrinho</h1>
+		<h3>Carrinho</h3>
 
 		<h:form>
-			<h:messages style="color:red" />
+		<h:messages styleClass="passwordError" class="alert alert-danger" style="list-style: none;" />
 			
 			<h:dataTable value="#{carrinhoController.venda.listaItemVenda}" var="obj">
 				<h:column>
@@ -41,7 +40,6 @@
 			</h:commandButton>	
 			
 		</h:form>
-	</center>
 </ui:define>
 </ui:composition>	
 	
