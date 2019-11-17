@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.unitins.construmaxx.model.Produto;
+import br.unitins.construmaxx.model.TipoProduto;
 
 public class ProdutoDAO extends DAO<Produto> {
 	
@@ -27,12 +28,13 @@ public class ProdutoDAO extends DAO<Produto> {
 		PreparedStatement stat = conn.prepareStatement(
 				"INSERT INTO " +
 			    "produto " +
-			    " (nome, descricao, valor) " +
+			    " (nome, descricao, tipoproduto, valor) " +
 				"VALUES " +
-			    " (?, ?, ?) ");
+			    " (?, ?, ?, ?) ");
 		stat.setString(1, produto.getNome());
 		stat.setString(2, produto.getDescricao());
-		stat.setFloat(3, produto.getValor());
+		stat.setInt(3, produto.getTipoProduto().getValue());
+		stat.setFloat(4, produto.getValor());
 		
 		stat.execute();
 			
@@ -46,13 +48,14 @@ public class ProdutoDAO extends DAO<Produto> {
 				"UPDATE produto SET " +
 			    " nome = ?, " +
 			    " descricao = ?, " +
+			    " tipoproduto = ?, " +
 			    " valor = ? " +
-			    " tipoproduto= ?" +
 				"WHERE " +
 			    " id = ? ");
 		stat.setString(1, produto.getNome());
 		stat.setString(2, produto.getDescricao());
-		stat.setFloat(3, produto.getValor());
+		stat.setInt(3, produto.getTipoProduto().getValue());
+		stat.setFloat(4, produto.getValor());
 		stat.setInt(4, produto.getId());
 			
 		stat.execute();
@@ -83,6 +86,7 @@ public class ProdutoDAO extends DAO<Produto> {
 					"  id, " +
 					"  nome, " +
 					"  descricao, " +
+					"  tipoproduto, " +
 					"  valor " +
 					"FROM " +
 					"  produto ");
@@ -95,6 +99,7 @@ public class ProdutoDAO extends DAO<Produto> {
 				produto.setId(rs.getInt("id"));
 				produto.setNome(rs.getString("nome"));
 				produto.setDescricao(rs.getString("descricao"));
+				produto.setTipoProduto(TipoProduto.valueOf(rs.getInt("tipoproduto")));
 				produto.setValor(rs.getFloat("valor"));
 				
 				listaProduto.add(produto);
@@ -121,6 +126,7 @@ public class ProdutoDAO extends DAO<Produto> {
 					"  id, " +
 					"  nome, " +
 					"  descricao, " +
+					"  tipoproduto, " +
 					"  valor " +
 					"FROM " +
 					"  produto " +
@@ -137,6 +143,7 @@ public class ProdutoDAO extends DAO<Produto> {
 				produto.setId(rs.getInt("id"));
 				produto.setNome(rs.getString("nome"));
 				produto.setDescricao(rs.getString("descricao"));
+				produto.setTipoProduto(TipoProduto.valueOf(rs.getInt("tipoproduto")));
 				produto.setValor(rs.getFloat("valor"));
 				
 				listaProduto.add(produto);
@@ -163,6 +170,7 @@ public class ProdutoDAO extends DAO<Produto> {
 					"  id, " +
 					"  nome, " +
 					"  descricao, " +
+					"  tipoproduto, " +
 					"  valor " +
 					"FROM " +
 					"  produto " +
@@ -179,6 +187,7 @@ public class ProdutoDAO extends DAO<Produto> {
 				produto.setId(rs.getInt("id"));
 				produto.setNome(rs.getString("nome"));
 				produto.setDescricao(rs.getString("descricao"));
+				produto.setTipoProduto(TipoProduto.valueOf(rs.getInt("tipoproduto")));
 				produto.setValor(rs.getFloat("valor"));
 			}
 			
