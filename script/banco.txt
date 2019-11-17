@@ -1,0 +1,142 @@
+﻿-- Database: construmaxx
+
+-- DROP DATABASE construmaxx;
+
+CREATE DATABASE construmaxx
+    WITH 
+    OWNER = topicos
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Portuguese_Brazil.1252'
+    LC_CTYPE = 'Portuguese_Brazil.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+-- Table: public.endereco
+
+-- DROP TABLE public.endereco;
+
+CREATE TABLE public.endereco
+(
+    id integer NOT NULL DEFAULT nextval('endereco_id_seq'::regclass),
+    logradouro character varying(60) COLLATE pg_catalog."default",
+    numero character varying(60) COLLATE pg_catalog."default",
+    cidade character varying(60) COLLATE pg_catalog."default",
+    estado character varying(60) COLLATE pg_catalog."default",
+    cep character varying(60) COLLATE pg_catalog."default",
+    CONSTRAINT endereco_pkey PRIMARY KEY (id),
+    CONSTRAINT endereco_id_fkey FOREIGN KEY (id)
+        REFERENCES public.usuario (id) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.endereco
+    OWNER to topicos;
+
+-- Table: public.itemvenda
+
+-- DROP TABLE public.itemvenda;
+
+CREATE TABLE public.itemvenda
+(
+    id integer NOT NULL DEFAULT nextval('itemvenda_id_seq'::regclass),
+    idproduto integer,
+    idvenda integer,
+    valor numeric(10,2),
+    CONSTRAINT itemvenda_pkey PRIMARY KEY (id),
+    CONSTRAINT itemvenda_idproduto_fkey FOREIGN KEY (idproduto)
+        REFERENCES public.produto (id) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT itemvenda_idvenda_fkey FOREIGN KEY (idvenda)
+        REFERENCES public.venda (id) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.itemvenda
+    OWNER to topicos;
+-- Table: public.produto
+
+-- DROP TABLE public.produto;
+
+CREATE TABLE public.produto
+(
+    id integer NOT NULL DEFAULT nextval('produto_id_seq'::regclass),
+    nome character varying(60) COLLATE pg_catalog."default",
+    descricao character varying(60) COLLATE pg_catalog."default",
+    valor numeric(10,2),
+    tipoproduto integer,
+    CONSTRAINT produto_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.produto
+    OWNER to topicos;
+
+-- Table: public.telefone
+
+-- DROP TABLE public.telefone;
+
+CREATE TABLE public.telefone
+(
+    id integer NOT NULL DEFAULT nextval('telefone_id_seq'::regclass),
+    codigoarea character varying(60) COLLATE pg_catalog."default",
+    numero character varying(60) COLLATE pg_catalog."default",
+    CONSTRAINT telefone_pkey PRIMARY KEY (id),
+    CONSTRAINT telefone_id_fkey FOREIGN KEY (id)
+        REFERENCES public.usuario (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.telefone
+    OWNER to topicos;
+-- Table: public.usuario
+
+-- DROP TABLE public.usuario;
+
+CREATE TABLE public.usuario
+(
+    id integer NOT NULL DEFAULT nextval('usuario_id_seq'::regclass),
+    nome character varying(60) COLLATE pg_catalog."default",
+    login character varying(60) COLLATE pg_catalog."default",
+    senha character varying(100) COLLATE pg_catalog."default",
+    data date,
+    ativo boolean,
+    perfil integer,
+    CONSTRAINT usuario_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.usuario
+    OWNER to topicos;
+-- Table: public.venda
+
+-- DROP TABLE public.venda;
+
+CREATE TABLE public.venda
+(
+    id integer NOT NULL DEFAULT nextval('venda_id_seq'::regclass),
+    data date,
+    idusuario integer,
+    CONSTRAINT venda_pkey PRIMARY KEY (id),
+    CONSTRAINT venda_idusuario_fkey FOREIGN KEY (idusuario)
+        REFERENCES public.usuario (id) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.venda
+    OWNER to topicos;
