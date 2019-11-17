@@ -8,20 +8,20 @@
 <ui:composition template="templatefuncionario.xhtml">
 	<ui:define name="conteudo">
 		<div styleClass="background-color">
-			<h4 class="text-center py-3">Cadastro de Usuário</h4>
+			<h4 class="text-center py-3">Cadastro de Usuarios</h4>
 			<div class="container-fluid">
 				<h:form id="formPrincipal">
-					<h:messages styleClass="passwordError" class="alert alert-danger"
-						style="list-style: none;" id="messages" infoStyle="color:green"
-						warnStyle="color:orange" errorStyle="color:red" globalOnly="false" />
+					<h:messages class="alert alert-danger" style="list-style: none;"
+						id="messages" infoStyle="color:green" warnStyle="color:orange"
+						errorStyle="color:red" globalOnly="false" />
 					<div class="container-fluid d-md-flex">
-						<div class="col-sm-6">
+						<div class="col-sm-12 col-md-6">
 							<h:panelGrid id="panelPrincipal" columns="1">
 								<h5>Dados Pessoais</h5>
 								<h:panelGrid columns="2">
 
 									<h:outputLabel value="Nome: " />
-									<h:inputText id="inputNome"
+									<h:inputText id="inputNome" class="input-text"
 										value="#{usuarioController.usuario.nome}" />
 
 									<h:outputLabel value="Login: " />
@@ -31,7 +31,7 @@
 											requiredMessage="O campo login não pode ser nulo.">
 											<f:validateRequired />
 										</h:inputText>
-										<h:message for="inputLogin" style="color:red" />
+
 									</h:panelGrid>
 
 									<h:outputLabel value="Senha: " />
@@ -39,9 +39,11 @@
 
 									<h:outputLabel value="Data de Aniversário: " />
 									<h:inputText id="inputData"
-										value="#{usuarioController.usuario.dataAniversario}">
+										value="#{usuarioController.usuario.dataAniversario}"
+										requiredMessage="O campo data de aniversario não pode estar vazio">
 										<f:convertDateTime type="localDate" pattern="dd/MM/yyyy" />
 										<f:ajax resetValues="true" />
+										<f:validateRequired />
 									</h:inputText>
 									<h:outputLabel value="Usuario ativo: " />
 									<h:selectBooleanCheckbox id="checkAtivo"
@@ -87,27 +89,27 @@
 								</h:panelGrid>
 
 								<h:panelGrid id="panelBotoes" class="ml-0" columns="4">
-									<h:commandButton value="Incluir" class="buttonCrud"
+									<h:commandButton value="Incluir" class="btn btn-success"
 										disabled="#{usuarioController.usuario.id != null}"
 										actionListener="#{usuarioController.incluir()}">
-										<f:ajax render="formPrincipal" execute="panelPrincipal"
-											resetValues="true" />
-
+										<f:ajax render="formPrincipal messagesSuccess"
+											execute="panelPrincipal" resetValues="true" />
 									</h:commandButton>
-									<h:commandButton value="Alterar" class="buttonCrud"
+
+									<h:commandButton value="Alterar" class="btn btn-alert"
 										disabled="#{usuarioController.usuario.id == null}"
 										actionListener="#{usuarioController.alterar()}">
 										<f:ajax render="formPrincipal messages"
 											execute="formPrincipal" />
 									</h:commandButton>
 
-									<h:commandButton value="Excluir" class="buttonCrud"
+									<h:commandButton value="Excluir" class="btn btn-danger"
 										disabled="#{usuarioController.usuario.id == null}"
 										actionListener="#{usuarioController.excluir()}">
 										<f:ajax render="@all" execute="@this" />
 									</h:commandButton>
 
-									<h:commandButton value="Limpar" class="buttonCrud"
+									<h:commandButton value="Limpar" class="btn btn-warning"
 										action="#{usuarioController.limpar()}">
 										<f:ajax
 											render="formPrincipal inputNome inputData inputCep checkAtivo"
@@ -116,8 +118,9 @@
 								</h:panelGrid>
 							</h:panelGrid>
 						</div>
-
-						<div class="col-sm-6" style="overflow: scroll; height: 50%; weight: 100%;">
+						
+						<div class="col-sm-12 col-md-6 w-100"
+							style="overflow: scroll; height: 50%; weight: 100%;">
 							<h:panelGrid id="panelDataTable">
 								<h:dataTable id="dataTable"
 									value="#{usuarioController.listaUsuario}" var="obj"

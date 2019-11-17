@@ -34,7 +34,7 @@ public class TemplateController implements Serializable {
 		return "login.xhtml?faces-redirect=true";
 	}
 	
-	public static String redMarketplace() {
+	public String redMarketplace() {
 		return "vendaproduto.xhtml?faces-redirect=true";
 	}
 	

@@ -14,6 +14,9 @@ body {
 	text-align: center;
 }
 
+.footer-menu {
+	background-color: rgb(145, 145, 144);
+}
 .footer-menu ul {
     list-style: outside none none;
     margin: 0;
@@ -192,4 +195,9 @@ ul {
  	text-align:center;
 	background:none repeat scroll 0 0 #F9F9F9;
 	border-top:1px solid #BBBBBB;
+}
+
+ {
+	border-radius: 5px;		
+}
 }

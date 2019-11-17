@@ -21,18 +21,23 @@
 			class="container d-md-flex text-md-center justify-content-between align-items-center">
 			<div class="col-md-3 col-sm-12">
 				<h:commandLink action="#{templateController.redMarketplace()}">
-					<img alt="" src="resources/logo.png" width="260px" class="my-3"/>
+					<img alt="" src="resources/logo.png" width="260px" class="my-3" />
 				</h:commandLink>
 			</div>
 
 			<div class="col-md-6 col-sm-12 d-flex mr-0">
-				<h:inputText type="text" class="form-control" ><f:passThroughAttribute name="placeholder" value="O que voce deseja..." /></h:inputText>
-				<h:commandButton class="btn btn-primary" type="button" value="Buscar" />
+				<h:inputText type="text" class="form-control">
+					<f:passThroughAttribute name="placeholder"
+						value="O que voce deseja..." />
+				</h:inputText>
+				<h:commandButton class="btn btn-primary" type="button"
+					value="Buscar" />
 			</div>
 
 			<div class="col-md-2 col-sm-12">
 				<h:form>
-					<h:outputLabel class="m-0" value="Olá #{templateController.usuarioLogado.nome}" />
+					<h:outputLabel class="m-0"
+						value="Olá #{templateController.usuarioLogado.nome}" />
 					<h:commandLink value=" (Sair)"
 						action="#{templateController.encerrarSessao}" style="color: black" />
 				</h:form>
@@ -51,8 +56,8 @@
 									action="#{templateController.redMarketplace}"
 									style="color: white;" /></li>
 							<li class="nav-item active p-1"><h:commandLink
-									value="Carrinho"
-									action="#{templateController.redCarrinho}" style="color: white;" /></li>
+									value="Carrinho" action="#{templateController.redCarrinho}"
+									style="color: white;" /></li>
 						</ul>
 					</div>
 				</h:form>
@@ -73,87 +78,83 @@
 
 
 
-		<div class="container-fluid mt-3 pt-2" style="background-color: black">
-		<div class="footer-top-area">
-			<div class="zigzag-bottom"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-3 col-sm-6">
-						<div class="footer-about-us">
-							<h2>
-								u<span>Stora</span>
-							</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Perferendis sunt id doloribus vero quam laborum quas alias
-								dolores blanditiis iusto consequatur, modi aliquid eveniet
-								eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit,
-								debitis, quisquam. Laborum commodi veritatis magni at?</p>
-							<div class="footer-social">
-								<a href="#" target="_blank"><i class="fa fa-facebook"></i></a> <a
-									href="#" target="_blank"><i class="fa fa-twitter"></i></a> <a
-									href="#" target="_blank"><i class="fa fa-youtube"></i></a> <a
-									href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
-							</div>
+	<div class="container-fluid mt-3 py-4" style="background-color: black">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-sm-6">
+					<div class="footer-about-us">
+						<h2 class="text-white">
+							<span>Construmaxx</span>
+						</h2>
+						<p class="text-white">Ajudando o construtor em toda obra desde
+							1999.</p>
+						<div class="footer-social">
+							<a href="#" target="_blank"><i class="fa fa-facebook"></i></a> <a
+								href="#" target="_blank"><i class="fa fa-twitter"></i></a> <a
+								href="#" target="_blank"><i class="fa fa-youtube"></i></a> <a
+								href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
 						</div>
 					</div>
+				</div>
 
-					<div class="col-md-3 col-sm-6">
-						<div class="footer-menu">
-							<h2 class="footer-wid-title">User Navigation</h2>
-							<ul>
-								<li><a href="">My account</a></li>
-								<li><a href="">Order history</a></li>
-								<li><a href="">Wishlist</a></li>
-								<li><a href="">Vendor contact</a></li>
-								<li><a href="">Front page</a></li>
-							</ul>
-						</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="footer-menu">
+						<h2 class="text-white">Sobre nós</h2>
+						<ul>
+							<li><a class="text-white" href="">Minha conta</a></li>
+							<li><a class="text-white" href="">História</a></li>
+							<li><a class="text-white" href="">Negócios</a></li>
+							<li><a class="text-white" href="">Associados</a></li>
+							<li><a class="text-white" href="">Black-Friday</a></li>
+						</ul>
 					</div>
+				</div>
 
-					<div class="col-md-3 col-sm-6">
-						<div class="footer-menu">
-							<h2 class="footer-wid-title">Categories</h2>
-							<ul>
-								<li><a href="">Mobile Phone</a></li>
-								<li><a href="">Home accesseries</a></li>
-								<li><a href="">LED TV</a></li>
-								<li><a href="">Computer</a></li>
-								<li><a href="">Gadets</a></li>
-							</ul>
-						</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="footer-menu">
+						<h2 class="text-white">Categorias</h2>
+						<ul>
+							<li><a class="text-white" href="">Ferramentas</a></li>
+							<li><a class="text-white" href="">Estruturas</a></li>
+							<li><a class="text-white" href="">Importados</a></li>
+							<li><a class="text-white" href="">Telhamento</a></li>
+							<li><a class="text-white" href="">Acabamento</a></li>
+						</ul>
 					</div>
+				</div>
 
-					<div class="col-md-3 col-sm-6">
-						<div class="footer-newsletter">
-							<h2 class="footer-wid-title">Newsletter</h2>
-							<p>Sign up to our newsletter and get exclusive deals you wont
-								find anywhere else straight to your inbox!</p>
-							<div class="newsletter-form">
-								<input type="email" placeholder="Type your email" /> <input
-									type="submit" value="Subscribe" />
-							</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="footer-newsletter">
+						<h2 class="text-white">Newsletter</h2>
+						<p class="text-white">Se inscreva para receber mensagens e
+							promoções exclusivas no seu email. Trabalhamos com produtos não
+							com span.</p>
+						<div class="newsletter-form">
+							<input type="email" placeholder="Type your email"
+								class="input-group" /> <input type="submit" value="Subscribe"
+								class="btn btn-primary" />
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="footer-bottom-area">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8">
-						<div class="copyright">
-							<p>
-								2015 uCommerce. All Rights Reserved. <a
-									href="http://www.freshdesignweb.com" target="_blank">freshDesignweb.com</a>
-							</p>
-						</div>
+	</div>
+	<div class="footer-bottom-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="copyright">
+						<p>
+							2019 Ryu. All Rights Reserved. Projected in colaboration with <a
+								href="https://www.unitins.br/nPortal/" target="_blank">Unitins</a>
+						</p>
 					</div>
+				</div>
 
-					<div class="col-md-4">
-						<div class="footer-card-icon">
-							<i class="fa fa-cc-discover"></i> <i class="fa fa-cc-mastercard"></i>
-							<i class="fa fa-cc-paypal"></i> <i class="fa fa-cc-visa"></i>
-						</div>
+				<div class="col-md-4">
+					<div class="footer-card-icon">
+						<i class="fa fa-cc-discover"></i> <i class="fa fa-cc-mastercard"></i>
+						<i class="fa fa-cc-paypal"></i> <i class="fa fa-cc-visa"></i>
 					</div>
 				</div>
 			</div>
