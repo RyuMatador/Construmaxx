@@ -11,7 +11,9 @@ import javax.inject.Named;
 import br.unitins.construmaxx.application.Util;
 import br.unitins.construmaxx.dao.DAO;
 import br.unitins.construmaxx.dao.ProdutoDAO;
+import br.unitins.construmaxx.model.Perfil;
 import br.unitins.construmaxx.model.Produto;
+import br.unitins.construmaxx.model.TipoProduto;
 
 @Named
 @ViewScoped
@@ -72,6 +74,10 @@ public class ProdutoController implements Serializable {
 		} finally {
 			dao.closeConnection();
 		}
+	}
+	
+	public TipoProduto[] getListaTipoProduto() {
+		return TipoProduto.values();
 	}
 
 	public Produto getProduto() {

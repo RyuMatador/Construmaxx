@@ -13,51 +13,64 @@
 	<ui:composition template="templatefuncionario.xhtml">
 		<ui:define name="conteudo">
 
-			<h4 class="my-2">Cadastro de Produto</h4>
+			<h4 class="my-4">Cadastro de Produto</h4>
+			<div class="container my-5 ">
+				<h:form id="formPrincipal">
 
-			<h:form id="formPrincipal">
-				<div class="container my-5">
 					<h:messages id="messages" infoStyle="color:green"
 						warnStyle="color:orange" errorStyle="color:red" globalOnly="false" />
-					<h:panelGrid id="panelPrincipal" columns="2">
-						<h:outputLabel value="Nome: " />
-						<h:inputText classStyle="input" value="#{produtoController.produto.nome}" />
+					<div class="row">
+						<div class="col-md-6 col-sm-12 p-2 border border-dark rounded">
+							<h:panelGrid id="panelPrincipal" columns="2">
+								<h:outputLabel value="Nome: " />
+								<h:inputText classStyle="input"
+									value="#{produtoController.produto.nome}" />
 
-						<h:outputLabel value="Descrição: " />
-						<h:inputTextarea value="#{produtoController.produto.descricao}" />
+								<h:outputLabel value="Descrição: " />
+								<h:inputTextarea value="#{produtoController.produto.descricao}" />
 
-						<h:outputLabel value="Valor: " />
-						<h:inputText value="#{produtoController.produto.valor}" />
+								<h:outputLabel value="Valor: " />
+								<h:inputText value="#{produtoController.produto.valor}" />
+								
+								<h:outputLabel value="Tipo: " />
+									<h:selectOneMenu value="#{produtoController.produto.tipoProduto}">
+										<f:selectItem itemLabel="Selecione ...." />
+										<f:selectItems value="#{produtoController.listaTipoProduto}"
+											var="perfil" itemLabel="#{produto.label}"
+											itemValue="#{perfil}" />
+									</h:selectOneMenu>
 
-					</h:panelGrid>
+							</h:panelGrid>
 
-					<h:panelGrid id="panelBotoes" columns="4">
-						<h:commandButton value="Incluir" class="buttonCrud"
-							disabled="#{produtoController.produto.id != null}"
-							actionListener="#{produtoController.incluir()}">
-							<f:ajax render="formPrincipal" execute="panelPrincipal"
-								resetValues="true" />
+							<h:panelGrid id="panelBotoes" columns="4">
+								<h:commandButton value="Incluir" class="btn btn-success"
+									disabled="#{produtoController.produto.id != null}"
+									actionListener="#{produtoController.incluir()}">
+									<f:ajax render="formPrincipal" execute="panelPrincipal"
+										resetValues="true" />
 
-						</h:commandButton>
-						<h:commandButton value="Alterar" class="buttonCrud"
-							disabled="#{produtoController.produto.id == null}"
-							actionListener="#{produtoController.alterar()}">
-							<f:ajax render="formPrincipal messages" execute="formPrincipal" />
-						</h:commandButton>
+								</h:commandButton>
+								<h:commandButton value="Alterar" class="btn btn-alert"
+									disabled="#{produtoController.produto.id == null}"
+									actionListener="#{produtoController.alterar()}">
+									<f:ajax render="formPrincipal messages" execute="formPrincipal" />
+								</h:commandButton>
 
-						<h:commandButton value="Excluir" class="buttonCrud"
-							disabled="#{produtoController.produto.id == null}"
-							actionListener="#{produtoController.excluir()}">
-							<f:ajax render="@all" execute="@this" />
-						</h:commandButton>
+								<h:commandButton value="Excluir" class="btn btn-danger"
+									disabled="#{produtoController.produto.id == null}"
+									actionListener="#{produtoController.excluir()}">
+									<f:ajax render="@all" execute="@this" />
+								</h:commandButton>
 
-						<h:commandButton value="Limpar" class="buttonCrud"
-							actionListener="#{produtoController.limpar()}">
-							<f:ajax render="formPrincipal" execute="@this" />
-						</h:commandButton>
-					</h:panelGrid>
-				</div>
-			</h:form>
+								<h:commandButton value="Limpar" class="btn btn-warning"
+									actionListener="#{produtoController.limpar()}">
+									<f:ajax render="formPrincipal" execute="@this" />
+								</h:commandButton>
+							</h:panelGrid>
+						</div>
+					</div>
+				</h:form>
+			</div>
 
 		</ui:define>
 	</ui:composition>

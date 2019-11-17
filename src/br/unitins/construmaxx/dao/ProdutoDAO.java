@@ -47,6 +47,7 @@ public class ProdutoDAO extends DAO<Produto> {
 			    " nome = ?, " +
 			    " descricao = ?, " +
 			    " valor = ? " +
+			    " tipoproduto= ?" +
 				"WHERE " +
 			    " id = ? ");
 		stat.setString(1, produto.getNome());

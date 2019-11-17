@@ -5,6 +5,7 @@ public class Produto {
 	private String nome;
 	private String descricao;
 	private Float valor;
+	private TipoProduto tipoProduto;
 
 	public Produto() {
 		
@@ -16,6 +17,14 @@ public class Produto {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.valor = valor;
+	}
+	
+	public TipoProduto getTipoProduto() {
+		return tipoProduto;
+	}
+
+	public void setTipoProduto(TipoProduto tipoProduto) {
+		this.tipoProduto = tipoProduto;
 	}
 
 	public Integer getId() {

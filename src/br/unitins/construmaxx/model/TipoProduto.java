@@ -25,11 +25,11 @@ public enum TipoProduto {
 		return label;
 	}
 
-	public static Perfil valueOf(int value) {
+	public static TipoProduto valueOf(int value) {
 
-		for (Perfil perfil : Perfil.values()) {
-			if (perfil.getValue() == value)
-				return perfil;
+		for (TipoProduto tipoProduto : TipoProduto.values()) {
+			if (tipoProduto.getValue() == value)
+				return tipoProduto;
 		}
 		return null;
 	}
