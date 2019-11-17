@@ -45,7 +45,7 @@ public class LoginController implements Serializable {
 				return "carrinho.xhtml?faces-redirect=true";
 			}
 		}
-		Util.addMessageError("usuario ou senha invalido.");
+		Util.addMessageError("Usuario ou senha invalido(s).");
 		return null;
 	}
 

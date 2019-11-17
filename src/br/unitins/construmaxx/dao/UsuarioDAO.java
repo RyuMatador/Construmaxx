@@ -75,7 +75,7 @@ public class UsuarioDAO extends DAO<Usuario> {
 
 		stat.execute();
 
-		// obtendo o id gerado pela tabela do banco de dados
+//		PEGANDO AS CHAVES DO BANCO
 		ResultSet rs = stat.getGeneratedKeys();
 		rs.next();
 		usuario.getTelefone().setId(rs.getInt("id"));
@@ -93,7 +93,7 @@ public class UsuarioDAO extends DAO<Usuario> {
 		Connection conn = getConnection();
 
 		PreparedStatement stat = conn.prepareStatement("UPDATE public.usuario SET " + " nome = ?, " + " login = ?, "
-				+ " senha = ?, " + " ativo = ?, " + " ativo = ?, " + " perfil = ? " + "WHERE " + " id = ? ");
+				+ " senha = ?, " + " data = ?, " + " ativo = ?, " + " perfil = ? " + "WHERE " + " id = ? ");
 		stat.setString(1, usuario.getNome());
 		stat.setString(2, usuario.getLogin());
 		stat.setString(3, usuario.getSenha());
@@ -109,14 +109,9 @@ public class UsuarioDAO extends DAO<Usuario> {
 	public void delete(int id) throws SQLException {
 
 		Connection conn = getConnection();
-		// deletando o telefone (pq possui um relacionamento de fk)
-		// passando o conn para manter a mesma transacao
 		TelefoneDAO dao = new TelefoneDAO(conn);
-		// telefone tem um relecionamento 1 pra 1, ou seja, o id do usuario eh o mesmo
-		// do telefone.
 		dao.delete(id);
 
-		// deletando o usuario
 		PreparedStatement stat = conn.prepareStatement("DELETE FROM public.usuario WHERE id = ?");
 		stat.setInt(1, id);
 
@@ -131,8 +126,8 @@ public class UsuarioDAO extends DAO<Usuario> {
 			return null;
 
 		try {
-			PreparedStatement stat = conn.prepareStatement("SELECT " + "  id, " + "  nome, " + "  login, " + "  senha, "
-					+ "  ativo, " + "  perfil " + "FROM " + "  public.usuario ");
+			PreparedStatement stat = conn.prepareStatement("SELECT " + "  id, " + "  nome, " + "  login, " + "  senha, " + " data, "  +
+			"  ativo, " + "  perfil " + "FROM " + "  public.usuario ");
 			ResultSet rs = stat.executeQuery();
 
 			List<Usuario> listaUsuario = new ArrayList<Usuario>();
@@ -143,6 +138,7 @@ public class UsuarioDAO extends DAO<Usuario> {
 				usuario.setNome(rs.getString("nome"));
 				usuario.setLogin(rs.getString("login"));
 				usuario.setSenha(rs.getString("senha"));
+				usuario.setDataAniversario(rs.getDate("data").toLocalDate());
 				usuario.setAtivo(rs.getBoolean("ativo"));
 				usuario.setPerfil(Perfil.valueOf(rs.getInt("perfil")));
 
@@ -185,7 +181,7 @@ public class UsuarioDAO extends DAO<Usuario> {
 
 				TelefoneDAO dao = new TelefoneDAO(conn);
 				usuario.setTelefone(dao.findById(usuario.getId()));
-				// caso o retorno do telefone seja nulo, instanciar um telefone
+
 				if (usuario.getTelefone() == null)
 					usuario.setTelefone(new Telefone());
 

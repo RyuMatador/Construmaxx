@@ -14,8 +14,8 @@
 <h:body>
 	<div class="container-fluid px-0" style="background-color: white">
 		<div class="text-center">
-			<h:commandLink action="#{templateController.redMarketplace}">
-				<img alt="" src="resources/logo.png" width="260px" class="my-3" />
+			<h:commandLink action="#{templateController.redMarketplace()}">
+				<img src="resources/logo.png" width="260px" class="my-3" />
 			</h:commandLink>
 		</div>
 
@@ -23,7 +23,8 @@
 			style="background-color: rgb(242, 135, 41); height: 3em;"></div>
 	</div>
 
-	<div class="container-fluid d-flex justify-content-center p-5" style="background-image: url(../resources/builder.jpg);background-size: 100%;background-repeat: no-repeat;">
+	<div class="container-fluid d-flex justify-content-center p-5"
+		style="background-image: url(../resources/builder.jpg); background-size: 100%; background-repeat: no-repeat;">
 		<aside>
 			<ui:insert name="navegacao" class="col-2">
 

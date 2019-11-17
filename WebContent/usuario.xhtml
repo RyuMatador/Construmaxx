@@ -14,11 +14,11 @@
 					<h:messages styleClass="passwordError" class="alert alert-danger"
 						style="list-style: none;" id="messages" infoStyle="color:green"
 						warnStyle="color:orange" errorStyle="color:red" globalOnly="false" />
-					<div class="container-fluid d-md-flex text-sm-center">
-						<div class="col-md-6">
+					<div class="container-fluid d-md-flex">
+						<div class="col-sm-6">
 							<h:panelGrid id="panelPrincipal" columns="1">
 								<h5>Dados Pessoais</h5>
-								<h:panelGrid columns="2" class="mr-2 ">
+								<h:panelGrid columns="2">
 
 									<h:outputLabel value="Nome: " />
 									<h:inputText id="inputNome"
@@ -117,7 +117,7 @@
 							</h:panelGrid>
 						</div>
 
-						<div class="col-md-6" style="overflow: scroll; height: 70%;">
+						<div class="col-sm-6" style="overflow: scroll; height: 50%; weight: 100%;">
 							<h:panelGrid id="panelDataTable">
 								<h:dataTable id="dataTable"
 									value="#{usuarioController.listaUsuario}" var="obj"
@@ -161,7 +161,7 @@
 									</h:column>
 
 									<h:column>
-										<h:commandLink value="Apagar"
+										<h:commandLink class="btn btn-danger" value="Apagar"
 											actionListener="#{usuarioController.excluir(obj)}">
 											<f:ajax render="formPrincipal"
 												execute="formPrincipal:dataTable" />
