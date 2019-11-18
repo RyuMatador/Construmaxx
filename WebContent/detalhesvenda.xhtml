@@ -4,11 +4,11 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-<ui:composition template="templatepadrao.xhtml">
+<ui:composition template="templateusuario.xhtml">
 	<ui:define name="conteudo">
 			<div class="container">
 				<div class="navbar navbar-inverse">
-					<div class="navbar-brand" style="width: 100%; text-align: center;">Detalhe da Venda</div>
+					<div class="navbar-brand text-center" style="width: 100%; text-align: center;">Detalhe da Venda</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-xs-updated">
@@ -36,7 +36,7 @@
 							
 							<div class="mb-3">
 								<h:outputLabel value="Itens vendidos: " styleClass="control-label" />
-								<h:dataTable value="#{detalheVendaController.venda.listaItemVenda}" var="obj" styleClass="table table-striped table-hover">>
+								<h:dataTable class="table" value="#{detalheVendaController.venda.listaItemVenda}" var="obj" styleClass="table table-striped table-hover">>
 									<h:column>
 										<f:facet name="header">Nome</f:facet>
 										<h:outputLabel value="#{obj.produto.nome}" />

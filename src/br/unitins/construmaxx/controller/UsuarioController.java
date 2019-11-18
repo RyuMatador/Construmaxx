@@ -25,7 +25,7 @@ public class UsuarioController implements Serializable {
 	private Usuario usuario;
 
 	private List<Usuario> listaUsuario;
-	
+
 	private String nome;
 
 	public List<Usuario> getListaUsuario() {
@@ -37,11 +37,11 @@ public class UsuarioController implements Serializable {
 		}
 		return listaUsuario;
 	}
-	
+
 	public List<Usuario> usuarioPesquisa() {
 		if (listaUsuario == null) {
 			DAO<Usuario> dao = new UsuarioDAO();
-			//listaUsuario = dao.findAll();
+			// listaUsuario = dao.findAll();
 			if (listaUsuario == null)
 				listaUsuario = new ArrayList<Usuario>();
 		}
@@ -53,8 +53,8 @@ public class UsuarioController implements Serializable {
 			DAO<Usuario> dao = new UsuarioDAO();
 			// faz a inclusao no banco de dados
 			try {
-				//				String hashSenha = Util.hashSHA256(getUsuario().getSenha());
-				//				getUsuario().setSenha(hashSenha);
+				// String hashSenha = Util.hashSHA256(getUsuario().getSenha());
+				// getUsuario().setSenha(hashSenha);
 
 				getUsuario().setSenha(Util.hashSHA256(getUsuario().getSenha()));
 
@@ -100,13 +100,14 @@ public class UsuarioController implements Serializable {
 		DAO<Usuario> dao = new UsuarioDAO();
 		// faz a exclusao no banco de dados
 		try {
-			dao.delete(getUsuario().getId());
+			dao.delete(usuario.getId());
 			dao.getConnection().commit();
-			Util.addMessageInfo("Exclusao realizada com sucesso.");
+			Util.addMessageInfo("Exclusão realizada com sucesso.");
+			limpar();
 			return true;
 		} catch (SQLException e) {
 			dao.rollbackConnection();
-			Util.addMessageInfo("Erro ao excluir o usuario no Banco de Dados.");
+			Util.addMessageInfo("Erro ao excluir o Produto no Banco de Dados.");
 			e.printStackTrace();
 			return false;
 		} finally {

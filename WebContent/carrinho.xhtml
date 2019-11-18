@@ -4,15 +4,16 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
 <ui:composition template="templateusuario.xhtml">
 <ui:define name="conteudo">
 
-		<h3>Carrinho</h3>
+		<h2>Carrinho</h2>
 
 		<h:form>
 		<h:messages styleClass="passwordError" class="alert alert-danger" style="list-style: none;" />
 			
-			<h:dataTable value="#{carrinhoController.venda.listaItemVenda}" var="obj">
+			<h:dataTable class="table" value="#{carrinhoController.venda.listaItemVenda}" var="obj">
 				<h:column>
 					<f:facet name="header">Nome</f:facet>
 					<h:outputLabel value="#{obj.produto.nome}" />
@@ -38,7 +39,6 @@
 					actionListener="#{carrinhoController.finalizar}" >
 					<f:ajax execute="@form" render="@form" />
 			</h:commandButton>	
-			
 		</h:form>
 </ui:define>
 </ui:composition>	
