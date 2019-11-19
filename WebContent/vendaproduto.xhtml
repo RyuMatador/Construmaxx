@@ -8,19 +8,20 @@
 	<ui:define name="conteudo">
 
 		<h2 class="text-center">Produtos em Estoque para Entrega</h2>
-
+		<h:messages class="alert alert-success" />
+		
 		<h:form>
 			<center>
 				<div class="container">
 					<div class="row">
 						<div class="col-12 justify-content-center">
-							<h:messages style="color:green" class="alert alert-success" />
+							
 							<h:panelGrid id="panelForm" columns="3">
 
 								<h:outputLabel value="Nome do Produto: " />
-								<h:inputText value="#{vendaProdutoController.nome}" />
+								<h:inputText class="btn border-dark p-1" value="#{vendaProdutoController.nome}" />
 
-								<h:commandButton value="Pesquisar"
+								<h:commandButton class="btn btn-success m-1 p-1" value="Pesquisar"
 									actionListener="#{vendaProdutoController.pesquisar}">
 									<f:ajax execute="panelForm" render="@all" />
 								</h:commandButton>

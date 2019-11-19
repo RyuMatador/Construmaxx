@@ -57,5 +57,9 @@ public class TemplateController implements Serializable {
 	public static String redLogin() {
 		return "login.xhtml?faces-redirect=true";
 	}
+	
+	public static String redError() {
+		return "error.xhtml?faces-redirect=true";
+	}
 
 }

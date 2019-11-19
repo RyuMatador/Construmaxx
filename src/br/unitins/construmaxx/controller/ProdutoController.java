@@ -41,6 +41,8 @@ public class ProdutoController implements Serializable {
 			dao.closeConnection();
 			Util.addMessageInfo("Erro ao incluir o produto no Banco de Dados.");
 			e.printStackTrace();
+		} catch (java.lang.NullPointerException e) {
+			Util.addMessageError("Não é possível incluir seu produto. Verifique se existe algum campo vazio.");
 		}
 	}
 

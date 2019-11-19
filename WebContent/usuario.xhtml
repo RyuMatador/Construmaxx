@@ -21,13 +21,14 @@
 								<h:panelGrid columns="2">
 
 									<h:outputLabel value="Nome: " />
-									<h:inputText id="inputNome" class="input-text"
+									<h:inputText id="inputNome"
+										class="btn border-dark p-1 text-left"
 										value="#{usuarioController.usuario.nome}" />
 
 									<h:outputLabel value="Login: " />
 									<h:panelGrid columns="1">
-										<h:inputText id="inputLogin"
-											value="#{usuarioController.usuario.login}"
+										<h:inputText class="btn border-dark p-1 text-left"
+											id="inputLogin" value="#{usuarioController.usuario.login}"
 											requiredMessage="O campo login não pode ser nulo.">
 											<f:validateRequired />
 										</h:inputText>
@@ -35,10 +36,12 @@
 									</h:panelGrid>
 
 									<h:outputLabel value="Senha: " />
-									<h:inputSecret value="#{usuarioController.usuario.senha}" />
+									<h:inputSecret class="btn border-dark p-1 text-left"
+										value="#{usuarioController.usuario.senha}" />
 
 									<h:outputLabel value="Data de Aniversário: " />
-									<h:inputText id="inputData"
+									<h:inputText class="btn border-dark p-1 text-left"
+										id="inputData"
 										value="#{usuarioController.usuario.dataAniversario}"
 										requiredMessage="O campo data de aniversario não pode estar vazio">
 										<f:convertDateTime type="localDate" pattern="dd/MM/yyyy" />
@@ -50,14 +53,15 @@
 										value="#{usuarioController.usuario.ativo}" />
 
 									<h:outputLabel value="DDD: " />
-									<h:inputText
+									<h:inputText class="btn border-dark p-1 text-left"
 										value="#{usuarioController.usuario.telefone.codigoArea}" />
 									<h:outputLabel value="Telefone: " />
-									<h:inputText
+									<h:inputText class="btn border-dark p-1 text-left"
 										value="#{usuarioController.usuario.telefone.numero}" />
 
 									<h:outputLabel value="Perfil: " />
-									<h:selectOneMenu value="#{usuarioController.usuario.perfil}">
+									<h:selectOneMenu class="btn border-dark p-1 text-left"
+										value="#{usuarioController.usuario.perfil}">
 										<f:selectItem itemLabel="Selecione ..." />
 										<f:selectItems value="#{usuarioController.listaPerfil}"
 											var="perfil" itemLabel="#{perfil.label}"
@@ -70,19 +74,24 @@
 								<h:panelGrid columns="6">
 									<h:panelGrid columns="2">
 										<h:outputLabel value="Logradouro: " />
-										<h:inputText id="inputLogradouro"
+										<h:inputText class="btn border-dark p-1 text-left"
+											id="inputLogradouro"
 											value="#{usuarioController.usuario.endereco.logradouro}" />
 										<h:outputLabel value="Número: " />
-										<h:inputText id="inputNumero"
+										<h:inputText class="btn border-dark p-1 text-left"
+											id="inputNumero"
 											value="#{usuarioController.usuario.endereco.numero}" />
 										<h:outputLabel value="Cidade: " />
-										<h:inputText id="inputCidade"
+										<h:inputText class="btn border-dark p-1 text-left"
+											id="inputCidade"
 											value="#{usuarioController.usuario.endereco.cidade}" />
 										<h:outputLabel value="Estado: " />
-										<h:inputText id="inputEstado"
+										<h:inputText class="btn border-dark p-1 text-left"
+											id="inputEstado"
 											value="#{usuarioController.usuario.endereco.estado}" />
 										<h:outputLabel value="Cep: " />
 										<h:inputText id="inputCep"
+											class="btn border-dark p-1 text-left"
 											value="#{usuarioController.usuario.endereco.cep}" />
 									</h:panelGrid>
 

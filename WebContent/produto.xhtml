@@ -13,27 +13,27 @@
 	<ui:composition template="templatefuncionario.xhtml">
 		<ui:define name="conteudo">
 
-			<h4 class="my-4">Cadastro de Produto</h4>
-			<div class="container my-5 ">
+			<h4 class="mt-5 mb-1">Cadastro de Produto</h4>
+			<div class="container mt-4">
 				<h:form id="formPrincipal">
 
 					<h:messages id="messages" infoStyle="color:green"
-						warnStyle="color:orange" errorStyle="color:red" globalOnly="false" class="" />
+						warnStyle="color:orange" errorStyle="color:red" globalOnly="false" class="alert border-secondary p-0" style="list-style: none;" />
 					<div class="row">
 						<div class="col-md-6 col-sm-12 p-2 border border-dark rounded">
 							<h:panelGrid id="panelPrincipal" columns="2">
 								<h:outputLabel value="Nome: " />
-								<h:inputText classStyle="input"
+								<h:inputText classStyle="input" class="btn border-dark p-1 text-left"
 									value="#{produtoController.produto.nome}" />
 
 								<h:outputLabel value="Descrição: " />
-								<h:inputTextarea value="#{produtoController.produto.descricao}" />
+								<h:inputTextarea class="btn border-dark p-1 text-left" value="#{produtoController.produto.descricao}" />
 
 								<h:outputLabel value="Valor: " />
-								<h:inputText value="#{produtoController.produto.valor}" />
+								<h:inputText class="btn border-dark p-1 text-left" value="#{produtoController.produto.valor}" />
 								
 								<h:outputLabel value="Tipo: " />
-									<h:selectOneMenu value="#{produtoController.produto.tipoProduto}">
+									<h:selectOneMenu class="btn border-dark p-1 text-left" value="#{produtoController.produto.tipoProduto}">
 										<f:selectItem itemLabel="Selecione ...." />
 										<f:selectItems value="#{produtoController.listaTipoProduto}"
 											var="perfil" itemLabel="#{produto.label}"
