@@ -79,6 +79,11 @@ public class CarrinhoController implements Serializable {
 			dao.closeConnection();
 			Util.addMessageInfo("Erro ao finalizar a Venda.");
 			e.printStackTrace();
+		} catch (java.lang.NullPointerException e) {
+			dao.rollbackConnection();
+			dao.closeConnection();
+			Util.addMessageError("Verifique se seu carrinho de compras está vazio.");
+			e.printStackTrace();
 		}
 
 	}

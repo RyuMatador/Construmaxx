@@ -28,6 +28,7 @@ public class HistoricoController implements Serializable {
 			VendaDAO dao = new VendaDAO();
 			Usuario usuario = (Usuario) Session.getInstance().getAttribute("usuarioLogado");
 			listaVenda = dao.findByUsuario(usuario.getId());
+			
 			if (listaVenda == null)
 				listaVenda = new ArrayList<Venda>();
 			dao.closeConnection();

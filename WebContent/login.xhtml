@@ -12,8 +12,7 @@
 
 <ui:composition template="templatepadrao.xhtml">
 	<ui:define name="conteudo">
-		<h:messages styleClass="loginError" class="alert alert-danger text-center"
-			style="list-style: none;" />
+		<h:messages class="alert border-dark bg-white text-center" style="list-style: none; color: red;" />
 		<div
 			class="container-fluid d-flex flex-nowrap align-items-center justify-content-center">
 			<div class="col-12 py-2 bg-white rounded">
@@ -22,14 +21,14 @@
 				<h:form class="container">
 					<div class="py-2">
 						<div class="py-2">
-							<h:inputText class="w-100"
+							<h:inputText class="btn border-dark p-1 text-left w-100"
 								value="#{loginController.usuario.login}">
 								<f:passThroughAttribute name="placeholder" value="Email" />
 							</h:inputText>
 
 						</div>
 						<div class="py-2">
-							<h:inputSecret class="w-100"
+							<h:inputSecret class="btn border-dark p-1 text-left w-100"
 								value="#{loginController.usuario.senha}">
 								<f:passThroughAttribute name="placeholder" value="Senha" />
 							</h:inputSecret>

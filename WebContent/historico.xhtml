@@ -4,16 +4,17 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-<ui:composition template="templatepadrao.xhtml">
+<ui:composition template="templateusuario.xhtml">
 <ui:define name="conteudo">
 
 	<center>
-		<h1>Histórico de Vendas</h1>
-
+		<h4 class="mt-5 mb-1">Histórico de Vendas</h4>
 		<h:form>
-			<h:messages style="color:red" />
-			
-			<h:dataTable value="#{historicoController.listaVenda}" var="obj">
+			<h:messages class="alert border-dark" style="list-style: none;"
+				id="messages" infoStyle="color:green" warnStyle="color:orange"
+				errorStyle="color:red" globalOnly="false" />
+			<div class="container bg-white w-100 h-100">
+			<h:dataTable class="table" value="#{historicoController.listaVenda}" var="obj">
 				<h:column>
 					<f:facet name="header">Id</f:facet>
 					<h:outputLabel value="#{obj.id}" />
@@ -40,14 +41,12 @@
 				
 				<h:column>
 					<f:facet name="header">Ação</f:facet>
-					<h:commandButton value="Detalhes ..." actionListener="#{historicoController.detalhes(obj)}">
+					<h:commandButton class="btn btn-warning p-1" value="Detalhes ..." actionListener="#{historicoController.detalhes(obj)}">
 						<f:ajax execute="@this" render="@none"/>
 					</h:commandButton>
 				</h:column>
-				
-
 			</h:dataTable>
-			
+			</div>
 		</h:form>
 	</center>
 </ui:define>

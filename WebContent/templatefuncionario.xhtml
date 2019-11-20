@@ -13,7 +13,8 @@
 </h:head>
 
 <h:body>
-	<div class="container-fluid px-0 text-sm-center" style="background-color: white">
+	<div class="container-fluid px-0 text-sm-center"
+		style="background-color: white">
 		<div
 			class="container d-md-flex justify-content-between align-items-center">
 			<h:commandLink action="#{templateController.redMarketplace()}">
@@ -56,6 +57,9 @@
 							<li class="nav-item active p-1"><h:commandLink
 									value="Cadastro Produtos"
 									action="#{templateController.redProduto}" style="color: white;" /></li>
+							<li class="nav-item active p-1"><h:commandLink
+									value="Histórico de Compras"
+									action="#{templateController.redHistorico}" style="color: white;" /></li>
 						</ul>
 					</div>
 				</h:form>
@@ -118,8 +122,8 @@
 							com span.</p>
 						<div class="newsletter-form">
 							<input type="email" placeholder="Type your email"
-								class="btn border-dark p-1 text-start input-group"/><input type="submit" value="Subscribe"
-								class="btn btn-primary" />
+								class="btn border-dark p-1 text-start input-group" /><input
+								type="submit" value="Subscribe" class="btn btn-primary" />
 						</div>
 					</div>
 				</div>

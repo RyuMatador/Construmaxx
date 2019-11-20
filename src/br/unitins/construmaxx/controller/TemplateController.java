@@ -61,5 +61,9 @@ public class TemplateController implements Serializable {
 	public static String redError() {
 		return "error.xhtml?faces-redirect=true";
 	}
+	
+	public static String redHistorico() {
+		return "historico.xhtml?faces-redirect=true";
+	}
 
 }

@@ -20,7 +20,8 @@
 		<div
 			class="container d-md-flex text-md-center justify-content-between align-items-center">
 			<div class="col-md-3 col-sm-12">
-				<h:commandLink action="#{templateController.redError()}" src="error.xhtml">
+				<h:commandLink action="#{templateController.redError()}"
+					src="error.xhtml">
 					<img alt="" src="resources/logo.png" width="260px" class="my-3" />
 				</h:commandLink>
 			</div>
@@ -57,6 +58,10 @@
 									style="color: white;" /></li>
 							<li class="nav-item active p-1"><h:commandLink
 									value="Carrinho" action="#{templateController.redCarrinho}"
+									style="color: white;" /></li>
+							<li class="nav-item active p-1"><h:commandLink
+									value="Histórico de Compras"
+									action="#{templateController.redHistorico}"
 									style="color: white;" /></li>
 						</ul>
 					</div>
@@ -131,8 +136,8 @@
 							com span.</p>
 						<div class="newsletter-form">
 							<input type="email" placeholder="Type your email"
-								class="input-group" /><input type="submit" value="Subscribe"
-								class="btn btn-primary" />
+								class="btn border-dark p-1 text-left" /><input type="submit"
+								value="Subscribe" class="btn btn-primary" />
 						</div>
 					</div>
 				</div>

@@ -103,6 +103,7 @@ public class UsuarioController implements Serializable {
 			dao.delete(usuario.getId());
 			dao.getConnection().commit();
 			Util.addMessageInfo("Exclusão realizada com sucesso.");
+			listaUsuario = null;
 			limpar();
 			return true;
 		} catch (SQLException e) {
